@@ -1,5 +1,4 @@
 Array.prototype.total = function() {
-  // Your code here!
 };
 
 Array.prototype.mean = function() {
