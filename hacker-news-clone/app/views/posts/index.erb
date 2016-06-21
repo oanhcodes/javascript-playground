@@ -1,0 +1,9 @@
+<!-- Post Index -->
+<div class="post-container">
+  <ol>
+<% @all_posts.each do |post| %>
+    <li><a class="title-link" href=<%=post.url%>><%=post.title%></a> <a class="site-link" href=<%=post.url%>>(<%=post.url%>)</a></li>
+    <p class="post-details"> <%= "by #{post.author.username} #{post.hours_since_creation} hours ago | "%><a class="site-link" href="/posts/<%= post.id %>/comments"><%="#{post.comments.count}"%> comments</a></p>
+<% end %>
+ </ol>
+</div>

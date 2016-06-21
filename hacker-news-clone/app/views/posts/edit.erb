@@ -1,0 +1,21 @@
+<div class="error-messages">
+  <ul>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="post-add-post">
+  <form method="post" action="/posts/<%="#{@post.id}"%>" class="login-form">
+    <input type="hidden" name="_method" value="put">
+    <label for="username">Title:</label>
+    <input type="text" name="post[title]" value="<%=@post.title%>"><br>
+    <label for="username">Url:</label>
+    <input type="text" name="post[url]" value="<%=@post.url%>"><br>
+    <input type="submit" value="Edit post">
+  </form>
+</div>
+

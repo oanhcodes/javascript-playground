@@ -1,0 +1,41 @@
+<!-- Post show -->
+<div class="post-show-comments">
+  <a class="title-link" href=<%=@post.url%>><%=@post.title%></a> <a class="site-link" href=<%=@post.url%>>(<%=@post.url%>)</a>
+  <p class="post-details"> <%= "by #{@post.author.username} #{@post.hours_since_creation} hours ago | "%><a class="site-link" href="/posts/<%= @post.id %>/comments"><%="#{@post.comments.count}"%> comments</a></p>
+
+  <div class="error-messages">
+    <ul>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  </div>
+
+  <form method="post" action="<%="/posts/#{@post.id}/comments"%>" class="login-form">
+    <input type="text" name="comment_text"><br>
+    <input type="submit" value="add comment">
+  </form>
+
+  <div class="comment-container">
+    <% @all_comments.each do |comment| %>
+    <p class=comment-details><a class="site-link" href=<%="/users/#{comment.commenter.id}"%>><%=comment.commenter.username%></a> <%="#{comment.hours_since_creation} hours ago"%></p>
+    <p><%= comment.comment_text %></p>
+    <% end %>
+  </div>
+
+<!-- Leave option if statement here instead of controller -->
+  <form method="post" action="/posts/<%= @post.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Posting" class="edit-delete-button">
+  </form>
+
+  <p><a href="/posts/<%= @post.id %>/edit">Edit this posting</a></p>
+
+
+
+
+
+
+</div>

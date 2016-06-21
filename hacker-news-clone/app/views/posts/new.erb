@@ -1,0 +1,21 @@
+<!-- Log-In and Registration Index -->
+
+<div class="error-messages">
+  <ul>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
+</div>
+
+<div class="post-add-post">
+<form method="post" action="<%="/posts/new"%>" class="login-form">
+    <label for="username">Title:</label>
+    <input type="text" name="title"><br>
+    <label for="username">Url:</label>
+    <input type="text" name="url"><br>
+    <input type="submit" value="add new post">
+</form>
+</div>
