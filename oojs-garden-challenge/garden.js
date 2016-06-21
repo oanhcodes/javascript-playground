@@ -27,26 +27,45 @@ var garden = {
   plant: function(flowers) {
     this.flowers = flowers;
   },
-
+  
+  // Using filter method
+  // Filter returns items that return true in a new array
   selectByColor: function(color) {
-    var results = [];
-    flowers.forEach(function(flower) {
-      if (flower.color === color) {
-        results.push(flower);
-      }
-    });
-    return results;
+    function flowerColor(flower) {
+      return (flower.color === color);
+    };
+
+    return this.flowers.filter(flowerColor);
   },
 
-  selectByName: function(name) {
-    var results = [];
-    flowers.forEach(function(flower) {
-      if (flower.name === name) {
-        results.push(flower);
-      }
-    });
-    return results;
+ selectByName: function(name) {
+    function flowerName(flower) {
+      return (flower.name === name);
+    };
+
+    return this.flowers.filter(flowerName);
   }
+
+  // Using forEach method
+  // selectByColor: function(color) {
+  //   var results = [];
+  //   this.flowers.forEach(function(flower) {
+  //     if (flower.color === color) {
+  //       results.push(flower);
+  //     }
+  //   });
+  //   return results;
+  // },
+
+  // selectByName: function(name) {
+  //   var results = [];
+  //   this.flowers.forEach(function(flower) {
+  //     if (flower.name === name) {
+  //       results.push(flower);
+  //     }
+  //   });
+  //   return results;
+  // },
 }
 
 
