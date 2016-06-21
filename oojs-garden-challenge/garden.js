@@ -15,6 +15,37 @@
 function Flower(name, color) {
   this.name = name;
   this.color = color;
+  this.identify = function(){
+    return "I am an " + this.name + " and I am " + this.color + ".";
+  };
+}
+
+var garden = {
+  name: "Kula Botanical Garden",
+  location: "Makawao",
+  plant: function(flowers) {
+    this.flowers = flowers;
+  },
+
+  selectByColor: function(color) {
+    var results = [];
+    flowers.forEach(function(flower) {
+      if (flower.color === color) {
+        results.push(flower);
+      }
+    });
+    return results;
+  },
+
+  selectByName: function(name) {
+    var results = [];
+    flowers.forEach(function(flower) {
+      if (flower.name === name) {
+        results.push(flower);
+      }
+    });
+    return results;
+  }
 }
 
 
