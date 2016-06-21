@@ -2,35 +2,81 @@
 // YOUR CODE: Create your garden "object literal" and Flower "constructor" and "prototypes" here.
 //------------------------------------------------------------------------------------------------------------------
 
+// Re-do challenge for additional practice with OOJS
+// Pseudocode
+// Create a flower object using constructor notation
+  // Add name and color properties
+  // Add identify method that returns a string that include name and color value
+// Create garden object using literal notation
+  // Add plant method
+  // Add selectByColor and selectByName methods that return number of flowers that meet search criteria
+  // Add name and location properties
+
 function Flower(name, color) {
   this.name = name;
   this.color = color;
-};
+}
 
 Flower.prototype.identify = function() {
   return "I am an " + this.name + " and I am " + this.color + ".";
-}; 
+}
 
 var garden = {
   name: "Kula Botanical Garden",
   location: "Makawao",
-
   plant: function(flowers) {
     this.flowers = flowers;
   },
-
+  
+  // Using filter method
+  // Filter returns items that return true in a new array
   selectByColor: function(color) {
-    return this.flowers.filter(function(flower) {
-      return flower.color === color;
-    });
+    function flowerColor(flower) {
+      return (flower.color === color);
+    };
+
+    return this.flowers.filter(flowerColor);
   },
 
-  selectByName: function(name) {
-    return this.flowers.filter(function(flower) {
-      return flower.name === name;
-    });
+ selectByName: function(name) {
+    function flowerName(flower) {
+      return (flower.name === name);
+    };
+
+    return this.flowers.filter(flowerName);
   }
+
+  // Using forEach method
+  // selectByColor: function(color) {
+  //   var results = [];
+  //   this.flowers.forEach(function(flower) {
+  //     if (flower.color === color) {
+  //       results.push(flower);
+  //     }
+  //   });
+  //   return results;
+  // },
+
+  // selectByName: function(name) {
+  //   var results = [];
+  //   this.flowers.forEach(function(flower) {
+  //     if (flower.name === name) {
+  //       results.push(flower);
+  //     }
+  //   });
+  //   return results;
+  // },
 }
+
+
+
+
+
+
+
+
+
+
 
 //------------------------------------------------------------------------------------------------------------------
 // DRIVER CODE: Do **NOT** change anything below this point. Your task is to implement code above to make this work.
