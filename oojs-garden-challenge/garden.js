@@ -15,9 +15,10 @@
 function Flower(name, color) {
   this.name = name;
   this.color = color;
-  this.identify = function(){
-    return "I am an " + this.name + " and I am " + this.color + ".";
-  };
+}
+
+Flower.prototype.identify = function() {
+  return "I am an " + this.name + " and I am " + this.color + ".";
 }
 
 var garden = {
