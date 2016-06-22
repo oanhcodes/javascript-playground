@@ -8,6 +8,7 @@
 // Create station object using object literal notation that has a name, location
   // Create a method to replenish bikes at a station
   // Create filtering methods for selectByColor and mostRecent
+// Refactor code to make station a constructor object to allow for multiple stations
 
 function Bike(id, color, year){
   this.id = id;
@@ -21,23 +22,49 @@ Bike.prototype.brandNew = function(){
   }
 }
 
-var station = {
-  name: "Divvy",
-  location: "Wood & Division",
-  replenish: function(bikes){
-    this.bikes = bikes;
-  },
-  selectByColor: function(color){
-    return this.bikes.filter(function(bike){
-      return bike.color === color;
-    })
-  },
-  mostRecent: function(year){
-    return this.bikes.filter(function(bike){
-      return bike.year >= 2014;
-    })
-  }
+
+function Station(name, location){
+  this.name = name;
+  this.location =location
 }
+
+Station.prototype.replenish = function(bikes){
+  this.bikes = bikes;
+}
+
+Station.prototype.selectByColor = function(color){
+  return this.bikes.filter(function(bike){
+    return bike.color === color;
+  })
+}
+
+Station.prototype.mostRecent = function(year){
+  return this.bikes.filter(function(bike){
+    return bike.year >= 2014;
+  })
+}
+
+var station = new Station("Divvy","Wood & Division")
+
+
+
+// var station = {
+//   name: "Divvy",
+//   location: "Wood & Division",
+//   replenish: function(bikes){
+//     this.bikes = bikes;
+//   },
+//   selectByColor: function(color){
+//     return this.bikes.filter(function(bike){
+//       return bike.color === color;
+//     })
+//   },
+//   mostRecent: function(year){
+//     return this.bikes.filter(function(bike){
+//       return bike.year >= 2014;
+//     })
+//   }
+// }
 
 
 
