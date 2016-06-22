@@ -2,6 +2,45 @@
 // YOUR CODE: Create your Station and Bike "constructor" function and "prototypes" methods here.
 //------------------------------------------------------------------------------------------------------------------
 
+// Pseudocode
+// Create a bike object using constructor notation that has an id, color, and year properties
+  // Create a method to check if the bike is brandNew
+// Create station object using object literal notation that has a name, location
+  // Create a method to replenish bikes at a station
+  // Create filtering methods for selectByColor and mostRecent
+
+function Bike(id, color, year){
+  this.id = id;
+  this.color = color;
+  this.year = year;
+}
+
+Bike.prototype.brandNew = function(){
+  if (this.year === 2015){
+    return true;
+  }
+}
+
+var station = {
+  name: "Divvy",
+  location: "Wood & Division",
+  replenish: function(bikes){
+    this.bikes = bikes;
+  },
+  selectByColor: function(color){
+    return this.bikes.filter(function(bike){
+      return bike.color === color;
+    })
+  },
+  mostRecent: function(year){
+    return this.bikes.filter(function(bike){
+      return bike.year >= 2014;
+    })
+  }
+}
+
+
+
 
 
 
