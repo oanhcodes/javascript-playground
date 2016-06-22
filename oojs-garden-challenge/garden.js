@@ -31,19 +31,15 @@ var garden = {
   // Using filter method
   // Filter returns items that return true in a new array
   selectByColor: function(color) {
-    function flowerColor(flower) {
-      return (flower.color === color);
-    };
-
-    return this.flowers.filter(flowerColor);
+    return this.flowers.filter(function(flower){
+      return flower.color === color;
+    })
   },
 
  selectByName: function(name) {
-    function flowerName(flower) {
-      return (flower.name === name);
-    };
-
-    return this.flowers.filter(flowerName);
+    return this.flowers.filter(function(flower){
+      return flower.name  === name;
+    })
   }
 
   // Using forEach method
