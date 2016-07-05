@@ -10,7 +10,12 @@ Array.prototype.mean = function() {
 };
 
 Array.prototype.median = function() {
-  // Your code here!
+  var length = this.length;
+  if(length % 2 != 0){
+    return this[Math.floor(length/2)];
+  } else {
+    return (this[(length/2) - 1] + this[length/2])/2
+  }
 };
 
 Array.prototype.mode = function() {
