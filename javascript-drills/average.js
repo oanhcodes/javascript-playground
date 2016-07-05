@@ -5,7 +5,8 @@ Array.prototype.total = function() {
 };
 
 Array.prototype.mean = function() {
-  // Your code here!
+  var length = this.length;
+  return this.total()/length;
 };
 
 Array.prototype.median = function() {
