@@ -1,4 +1,7 @@
 Array.prototype.total = function() {
+  return this.reduce(function(a,b){
+    return a + b;
+  })
 };
 
 Array.prototype.mean = function() {
