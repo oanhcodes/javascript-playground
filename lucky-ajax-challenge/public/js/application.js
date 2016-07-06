@@ -10,6 +10,7 @@ $(document).ready(function () {
     request.done(function(roll_num) {
       console.log(roll_num);
       $('.roll').text(roll_num);
+      // $('.container').append(roll_num);
       $('form').each(function() {
         this.reset();
       });
