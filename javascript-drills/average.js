@@ -19,7 +19,29 @@ Array.prototype.median = function() {
 };
 
 Array.prototype.mode = function() {
-  // Your code here!
-  // Ex. Mode array:
-  // var mode = { 5:3, 6:3 }
+  var numHash = [];
+  for(var i = 0; i < this.length; i++){
+    if(numHash[this[i]] == undefined){
+      numHash[this[i]] = 1;
+    } else {
+      numHash[this[i]] ++;
+    }
+  }
+
+  return Object.keys(numHash).reduce(function(a,b){
+    var max = numHash[a] > numHash[b] ? a:b ;
+  });
+
+  // var modeArray = [];
+  // for(key in numHash){
+  //   modeArray.push(numHash[key]);
+  // }
+
+  // var max = Math.max(...modeArray);
+  // for(key in numHash){
+  //   if(numHash[key] == max){
+  //     return key = numHash[key];
+  //   }
+  // }
+
 };
